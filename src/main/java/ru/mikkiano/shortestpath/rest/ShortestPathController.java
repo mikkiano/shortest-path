@@ -1,6 +1,6 @@
 package ru.mikkiano.shortestpath.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.mikkiano.shortestpath.model.Node;
@@ -18,7 +18,7 @@ public class ShortestPathController {
         this.shortestPathService = shortestPathService;
     }
 
-    @GetMapping("/calc")
+    @PostMapping("/calc")
     public ShortestPathResponse sumNumbers(@RequestBody GraphRequest request) {
         List<Node> result = shortestPathService.calculatePath(request.getStart(), request.getFinish(), request.getNodes(), request.getNeighbors());
         return new ShortestPathResponse(result);
