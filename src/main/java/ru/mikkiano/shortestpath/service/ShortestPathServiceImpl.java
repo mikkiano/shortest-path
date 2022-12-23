@@ -60,6 +60,9 @@ public class ShortestPathServiceImpl implements ShortestPathService {
                 currentMin = nodeDistance;
             }
         }
+        if (index == null){
+            return nodes.iterator().next();
+        }
         return index;
     }
 }
